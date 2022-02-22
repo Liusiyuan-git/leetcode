@@ -7,6 +7,3 @@ class Solution:
                 count += 1
 
         return count
-
-s = Solution()
-s.removeDuplicates([1, 2, 3, 4, 4, 4, 6, 6, 7])
