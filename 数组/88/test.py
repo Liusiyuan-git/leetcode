@@ -12,7 +12,3 @@ class Solution:
             else:
                 nums1[k] = nums2[j]
                 j -= 1
-
-
-s = Solution()
-s.merge([2, 0], 1, [1], 1)
