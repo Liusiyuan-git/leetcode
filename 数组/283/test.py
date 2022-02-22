@@ -1,4 +1,3 @@
-# 法一
 class Solution:
     def moveZeroes(self, nums):
         """
@@ -13,5 +12,3 @@ class Solution:
             nums[location] = 0
             location += 1
 
-s = Solution()
-s.moveZeroes([1, 0, 1])
