@@ -10,7 +10,7 @@ class Solution:
         self.inorder = None
 
     def buildTree(self, inorder, postorder):
-        postorder.reverse()  # 后续遍历都是最后的为根，所以跟着倒个个儿，这样第一个元素就为根，符合思维习惯
+        postorder.reverse()  # 后序遍历都是最后的为根，所以跟着倒个个儿，这样第一个元素就为根，符合思维习惯
         inorder.reverse()  # 中序也跟着倒个个儿, 方便后面拆分
         self.postorder = postorder  # 定义全局postorder
         self.inorder = inorder  # 定义全局inorder
