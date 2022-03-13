@@ -14,7 +14,7 @@ class Solution:
                 queue.append(i)
         while queue:
             q = queue[0]  # 取队列第一个课程
-            queue = queue[1:]  # 队列出队
+            queue = queue[1:]  # 课程出队
             lesson.append(q)  # 记录该课程，表明已经修过
             for i in to[q]:
                 inDeg[i] -= 1  # 将修课程入度-1，当为0时，表明先修课程已经修完，该课程可以修，入队
