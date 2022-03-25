@@ -2,7 +2,7 @@ import random
 
 
 class Solution:
-    def sortArray(self, nums: List[int]) -> List[int]:
+    def sortArray(self, nums):
         left = 0
         right = len(nums) - 1
         self.quickSort(nums, left, right)
