@@ -1,5 +1,5 @@
 class Solution:
-    def change(self, amount: int, coins: List[int]) -> int:
+    def change(self, amount: int, coins) -> int:
         n = len(coins)
         coins = [0] + coins
         f = [0] * (amount+1)
