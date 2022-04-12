@@ -22,7 +22,7 @@ class Solution:
         self.str = ""
         self.ans = set()
 
-    def findWords(self, board, words) -> List[str]:
+    def findWords(self, board, words):
         t = Trie()
         for word in words:
             t.insert(word)
