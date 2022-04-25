@@ -1,66 +1,56 @@
 class MyCircularDeque:
 
     def __init__(self, k: int):
-        self.queue = {
-            "queue": [],
-            "length": k
-        }
+        self.dequeue = []
+        self.count = k
+
 
     def insertFront(self, value: int) -> bool:
-        if self.queue["length"] == 0:
-            return False
-        else:
-            self.queue["queue"] = [value] + self.queue["queue"]
-            self.queue["length"] -= 1
+        if self.count > 0:
+            self.dequeue = [value] + self.dequeue
+            self.count -= 1
             return True
+        else:
+            return False
 
     def insertLast(self, value: int) -> bool:
-        if self.queue["length"] == 0:
-            return False
-        else:
-            self.queue["queue"].append(value)
-            self.queue["length"] -= 1
+        if self.count > 0:
+            self.dequeue += [value]
+            self.count -= 1
             return True
+        else:
+            return False
 
     def deleteFront(self) -> bool:
-        if not self.queue["queue"]:
+        if not self.dequeue:
             return False
-        else:
-            self.queue["queue"] = self.queue["queue"][1:]
-            self.queue["length"] += 1
-            return True
+        self.dequeue = self.dequeue[1:]
+        self.count += 1
+        return True
 
     def deleteLast(self) -> bool:
-        if not self.queue["queue"]:
+        if not self.dequeue:
             return False
-        else:
-            self.queue["queue"].pop()
-            self.queue["length"] += 1
-            return True
+        self.dequeue.pop()
+        self.count += 1
+        return True
 
     def getFront(self) -> int:
-        if not self.queue["queue"]:
-            return -1
-        else:
-            return self.queue["queue"][0]
+        if self.dequeue:
+            return self.dequeue[0]
+        return -1
 
     def getRear(self) -> int:
-        if not self.queue["queue"]:
-            return -1
-        else:
-            return self.queue["queue"][-1]
+        if self.dequeue:
+            return self.dequeue[-1]
+        return -1
 
     def isEmpty(self) -> bool:
-        if not self.queue["queue"]:
-            return True
-        else:
-            return False
+        return len(self.dequeue) == 0
 
     def isFull(self) -> bool:
-        if self.queue["length"] == 0:
-            return True
-        else:
-            return False
+        return self.count == 0
+
 
 # Your MyCircularDeque object will be instantiated and called as such:
 # obj = MyCircularDeque(k)
