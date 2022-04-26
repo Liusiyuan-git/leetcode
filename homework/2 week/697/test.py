@@ -1,21 +1,19 @@
 class Solution:
     def findShortestSubArray(self, nums) -> int:
-        mp = dict()
-
-        for i, num in enumerate(nums):
-            if num in mp:
-                mp[num][0] += 1
-                mp[num][2] = i
+        hashMap = {}
+        for i in range(len(nums)):
+            if nums[i] not in hashMap:
+                hashMap[nums[i]] = [1, i, i]
             else:
-                mp[num] = [1, i, i]
-
-        maxNum = minLen = 0
-        for count, left, right in mp.values():
-            if maxNum < count:
-                maxNum = count
-                minLen = right - left + 1
-            elif maxNum == count:
-                if minLen > (span := right - left + 1):
-                    minLen = span
-
+                hashMap[nums[i]][0] += 1
+                hashMap[nums[i]][2] = i
+        maxNum = 0
+        minLen = int(1e9)
+        for i in hashMap.keys():
+            arr = hashMap[i]
+            if arr[0]> maxNum:
+                maxNum = arr[0]
+                minLen = arr[2] - arr[1] + 1
+            elif arr[0] ==  maxNum:
+                minLen = min(minLen, arr[2] - arr[1] + 1)
         return minLen
